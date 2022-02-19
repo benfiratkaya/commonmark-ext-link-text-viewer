@@ -1,0 +1,34 @@
+{
+  "name": "benfiratkaya/commonmark-ext-link-text-viewer",
+  "license": "MIT",
+  "type": "commonmark-extension",
+  "description": "This extension provides support for changing the content of links to url for phpleague/commonmark markdown parser package.",
+  "keywords": [
+    "markdown",
+    "commonmark",
+    "extension",
+    "link",
+    "text"
+  ],
+  "authors": [
+    {
+      "name": "Firat Kaya",
+      "email": "benfiratkaya@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "league/commonmark": "^2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "BenFiratKaya\\CommonMarkExtension\\": "src/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
