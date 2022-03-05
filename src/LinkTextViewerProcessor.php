@@ -28,11 +28,11 @@ final class LinkTextViewerProcessor
   {
     $internalHosts = $this->config->get('link_text_viewer/internal_hosts');
     $link_type = $this->config->get('link_text_viewer/link_type');
+    
+    if ($link_type === self::APPLY_NONE)
+      return;
 
     foreach ($e->getDocument()->iterator() as $link) {
-      if ($link_type === self::APPLY_NONE)
-        continue;
-
       if (!($link instanceof Link))
         continue;
 
@@ -54,8 +54,7 @@ final class LinkTextViewerProcessor
 
   private function setLinkText(Link $link): void
   {
-    $link->detachChildren();
-    $link->appendChild(new Text($link->getUrl()));
+    $link->replaceChildren([new Text($link->getUrl())]);
   }
 
   /**
